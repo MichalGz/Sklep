@@ -1,5 +1,6 @@
 <script>
 	import TopBarInfo from "./top-bar-info.svelte";
+	import TopBarNavigation from "./top-bar-navigation.svelte";
 </script>
 
 <div class="topbar">
@@ -7,7 +8,7 @@
         <TopBarInfo />
     </div>
     <div class="right">
-        inne
+        <TopBarNavigation />
     </div>
 </div>
 
@@ -19,8 +20,8 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .left, .right {
-        color: beige;
+    
+    .right {
+        display: flex;
     }
 </style>
