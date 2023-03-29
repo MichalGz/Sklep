@@ -1,7 +1,7 @@
 <nav class="navigation">
-<a class="navi" href="carrer.html">carrers</a>
-<a class="navi" href="help.html">help</a>
-<a class="navi" href="buyer-protection.html">Buyer protection</a>
+    <a class="navi" href="carrer.html">carrers</a>
+    <a class="navi" href="help.html">help</a>
+    <a class="navi" href="buyer-protection.html">Buyer protection</a>
 </nav>
 
 <style>
