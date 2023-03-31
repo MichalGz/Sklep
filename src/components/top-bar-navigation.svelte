@@ -13,8 +13,4 @@
     a:hover {
         color: red;
     }
-    .navigation {
-        margin-right: 500px;
-        box-sizing: border-box;
-    }
 </style>
