@@ -1,6 +1,7 @@
 <script>
 	import TopBarInfo from "./top-bar-info.svelte";
 	import TopBarNavigation from "./top-bar-navigation.svelte";
+	import TopBarUserAction from "./top-bar-user-action.svelte";
 </script>
 
 <div class="topbar">
@@ -9,6 +10,7 @@
     </div>
     <div class="right">
         <TopBarNavigation />
+        <TopBarUserAction />
     </div>
 </div>
 
