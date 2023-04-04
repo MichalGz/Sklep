@@ -1,5 +1,6 @@
 <script>
-	import TopBarInfo from "./top-bar-info.svelte";
+	import TopBarCountrySelector from "./top-bar-country-selector.svelte";
+    import TopBarInfo from "./top-bar-info.svelte";
 	import TopBarNavigation from "./top-bar-navigation.svelte";
 	import TopBarUserAction from "./top-bar-user-action.svelte";
 </script>
@@ -11,6 +12,7 @@
     <div class="right">
         <TopBarNavigation />
         <TopBarUserAction />
+        <TopBarCountrySelector />
     </div>
 </div>
 
