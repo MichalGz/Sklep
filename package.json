@@ -31,8 +31,5 @@
 		"vite": "^4.2.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module",
-	"dependencies": {
-		"feather-icons": "^4.29.0"
-	}
+	"type": "module"
 }
