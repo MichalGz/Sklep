@@ -4,6 +4,12 @@
 </div>
 
 <style>
+    .actions {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        justify-content: start;
+    }
     .action {
         padding: 0px 8px;
         text-decoration: none;

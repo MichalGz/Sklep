@@ -5,6 +5,12 @@
 </nav>
 
 <style>
+    .navigation {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        justify-content: start;
+    }
     .link {
         padding: 16px 8px;
         color: white;

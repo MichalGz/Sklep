@@ -19,7 +19,7 @@
 <style>
     .topbar {
         background-color: black;
-        padding: 16px;
+        padding: 0px;
         display: flex;
         justify-content: space-between;
         align-items: center;
