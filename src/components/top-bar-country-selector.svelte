@@ -6,6 +6,8 @@
     const countries = ["Polski",'English','Deuchland'];
     let selectedCountry = countries.at(0);
     let isOpen = false;
+    const flags = [PolandFlag, EnglandFlag, GermanyFlag]
+    let selectedFlags = flags.at(0);
     function toggleOpen() {
         isOpen = !isOpen
     }
@@ -14,6 +16,14 @@
 	 */
     function selectCountry(country) {
         selectedCountry = country;
+    }
+
+
+    /**
+	 * @param {any} _flag
+	 */
+    function selectFlag(_flag) {
+        selectedFlags = _flag;
     }
 </script>
 
@@ -37,6 +47,11 @@
         <button class="country" on:click={()=>selectCountry(country)}> 
             {country}
         </button>
+            {#each flags as _flag}
+            <button class="flags" on:click={()=>selectFlag(_flag)}> 
+            {_flag}
+            </button>
+            {/each}
         {/each}
     </div>
     {/if}
