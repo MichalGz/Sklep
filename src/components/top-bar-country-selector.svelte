@@ -7,7 +7,7 @@
     let selectedCountry = countries.at(0);
     let isOpen = false;
     const flags = [PolandFlag, EnglandFlag, GermanyFlag]
-    let selectedFlags = flags.at(0);
+    let selectedFlags = flags.at(1);
     function toggleOpen() {
         isOpen = !isOpen
     }
@@ -42,16 +42,20 @@
     </button>
     {#if isOpen}
     <div class="modal">
-        <p class="language">Wybierz język: </p> 
+        <p class="language">Wybierz język: </p>
         {#each countries as country}
         <button class="country" on:click={()=>selectCountry(country)}> 
             {country}
+            <div class ="flags">
+                {#if country === "Polski"}
+                <PolandFlag />
+                {:else if country === "English"}
+                <EnglandFlag />
+                {:else if country === "Deuchland"}
+                <GermanyFlag />
+                {/if}
+            </div>
         </button>
-            {#each flags as _flag}
-            <button class="flags" on:click={()=>selectFlag(_flag)}> 
-            {_flag}
-            </button>
-            {/each}
         {/each}
     </div>
     {/if}
@@ -74,6 +78,7 @@
         -webkit-box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
         -moz-box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
         box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
+        border: none;
     }
     
     .selectedCountry {
@@ -87,5 +92,18 @@
     .language {
         font-size: 16px;
         padding: 8px;
+    }
+
+    .country {
+        border: none;
+        padding: 8px;
+    }
+
+    .country:hover {
+        background-color:rgb(150, 149, 149);
+    }
+
+    .flags {
+        padding: 4px;
     }
 </style>
