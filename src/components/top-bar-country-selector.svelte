@@ -34,7 +34,8 @@
         {:else}
             Nie wspierany jezyk
         {/if}
-        <Arrow />
+        <div class:isOpen class="arrow"><Arrow /></div>
+        
     </button>
 
     {#if isOpen}
@@ -84,6 +85,9 @@
         border: none;
         height: 100%;
         aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .language {
@@ -102,5 +106,14 @@
 
     .flags {
         padding: 4px;
+    }
+
+    .isOpen {
+        transform: rotate(180deg);
+    }
+
+    .arrow {
+        margin-top: 4px;
+        transition: 420ms;
     }
 </style>
