@@ -4,13 +4,17 @@
 	import GermanyFlag from "./germany-flag.svelte";
     import PolandFlag from "./poland-flag.svelte";
 
-    const countries = ["Polski",'English','Deuchland'];
-    let selectedCountry = countries.at(0);
+    // todo: zoptymalizować
+    const countries = ["Polski", 'English', 'Deuchland'];
+    const flags = [PolandFlag, EnglandFlag, GermanyFlag];
+
     let isOpen = false;
+    let selectedCountry = countries.at(0);
 
     function toggleOpen() {
         isOpen = !isOpen
     }
+
     /**
 	 * @param {string | undefined} country
 	 */
@@ -22,25 +26,35 @@
 <div class="countrySelector">
     <button class="selectedCountry" on:click={toggleOpen}>
         {#if selectedCountry === "Polski"}
-        <PolandFlag />
+            <PolandFlag />
         {:else if selectedCountry === "English"}
-        <EnglandFlag />
+            <EnglandFlag />
         {:else if selectedCountry === "Deuchland"}
-        <GermanyFlag />
+            <GermanyFlag />
         {:else}
-        Nie wspierany jezyk
+            Nie wspierany jezyk
         {/if}
         <Arrow />
     </button>
+
     {#if isOpen}
-    <div class="modal">
-        <p class="language">Wybierz język: </p> 
-        {#each countries as country}
-        <button class="country" on:click={()=>selectCountry(country)}> 
-            {country}
-        </button>
-        {/each}
-    </div>
+        <div class="modal">
+            <p class="language">Wybierz język: </p>
+            {#each countries as country}
+                <button class="country" on:click={()=>selectCountry(country)}> 
+                    {country}
+                    <div class ="flags">
+                        {#if country === "Polski"}
+                            <PolandFlag />
+                        {:else if country === "English"}
+                            <EnglandFlag />
+                        {:else if country === "Deuchland"}
+                            <GermanyFlag />
+                        {/if}
+                    </div>
+                </button>
+            {/each}
+        </div>
     {/if}
 </div>
 
@@ -61,6 +75,7 @@
         -webkit-box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
         -moz-box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
         box-shadow: 21px 1px 21px 1px rgba(66, 68, 90, 1);
+        border: none;
     }
     
     .selectedCountry {
@@ -76,4 +91,16 @@
         padding: 8px;
     }
 
+    .country {
+        border: none;
+        padding: 8px;
+    }
+
+    .country:hover {
+        background-color: rgb(150, 149, 149);
+    }
+
+    .flags {
+        padding: 4px;
+    }
 </style>
