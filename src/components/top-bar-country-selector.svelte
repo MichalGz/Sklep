@@ -4,9 +4,20 @@
 	import GermanyFlag from "./germany-flag.svelte";
     import PolandFlag from "./poland-flag.svelte";
 
-    // todo: zoptymalizować
-    const countries = ["Polski", 'English', 'Deuchland'];
-    const flags = [PolandFlag, EnglandFlag, GermanyFlag];
+    const countries = [
+        {
+            name: "Polski",
+            flag: PolandFlag
+        },
+        {
+            name: "English",
+            flag: EnglandFlag
+        },
+        {
+            name: "Deuchland",
+            flag: GermanyFlag
+        }
+    ]
 
     let isOpen = false;
     let selectedCountry = countries.at(0);
@@ -16,7 +27,7 @@
     }
 
     /**
-	 * @param {string | undefined} country
+	 * @param {any | undefined} country
 	 */
     function selectCountry(country) {
         selectedCountry = country;
@@ -25,17 +36,12 @@
 
 <div class="countrySelector">
     <button class="selectedCountry" on:click={toggleOpen}>
-        {#if selectedCountry === "Polski"}
-            <PolandFlag />
-        {:else if selectedCountry === "English"}
-            <EnglandFlag />
-        {:else if selectedCountry === "Deuchland"}
-            <GermanyFlag />
+        {#if selectedCountry}
+            <svelte:component this={selectedCountry.flag} />
         {:else}
             Nie wspierany jezyk
         {/if}
         <div class:isOpen class="arrow"><Arrow /></div>
-        
     </button>
 
     {#if isOpen}
@@ -43,15 +49,9 @@
             <p class="language">Wybierz język: </p>
             {#each countries as country}
                 <button class="country" on:click={()=>selectCountry(country)}> 
-                    {country}
+                    {country.name}
                     <div class ="flags">
-                        {#if country === "Polski"}
-                            <PolandFlag />
-                        {:else if country === "English"}
-                            <EnglandFlag />
-                        {:else if country === "Deuchland"}
-                            <GermanyFlag />
-                        {/if}
+                        <svelte:component this={country.flag} />
                     </div>
                 </button>
             {/each}
