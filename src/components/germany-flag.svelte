@@ -6,7 +6,7 @@
 
   <style>
     .flag {
-      border-radius: 50% 50%;
+        border-radius: 50% 50%;
     }
   </style>
   

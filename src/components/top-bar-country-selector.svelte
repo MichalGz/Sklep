@@ -8,6 +8,7 @@
     let isOpen = false;
     const flags = [PolandFlag, EnglandFlag, GermanyFlag]
     let selectedFlags = flags.at(1);
+
     function toggleOpen() {
         isOpen = !isOpen
     }
@@ -17,7 +18,6 @@
     function selectCountry(country) {
         selectedCountry = country;
     }
-
 
     /**
 	 * @param {any} _flag
