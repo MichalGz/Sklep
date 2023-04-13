@@ -3,61 +3,58 @@
     import EnglandFlag from "./england-flag.svelte";
 	import GermanyFlag from "./germany-flag.svelte";
     import PolandFlag from "./poland-flag.svelte";
-    const countries = ["Polski",'English','Deuchland'];
-    let selectedCountry = countries.at(0);
+
+    // todo: zoptymalizować
+    const countries = ["Polski", 'English', 'Deuchland'];
+    const flags = [PolandFlag, EnglandFlag, GermanyFlag];
+
     let isOpen = false;
-    const flags = [PolandFlag, EnglandFlag, GermanyFlag]
-    let selectedFlags = flags.at(1);
+    let selectedCountry = countries.at(0);
 
     function toggleOpen() {
         isOpen = !isOpen
     }
+
     /**
 	 * @param {string | undefined} country
 	 */
     function selectCountry(country) {
         selectedCountry = country;
     }
-
-    /**
-	 * @param {any} _flag
-	 */
-    function selectFlag(_flag) {
-        selectedFlags = _flag;
-    }
 </script>
 
 <div class="countrySelector">
     <button class="selectedCountry" on:click={toggleOpen}>
         {#if selectedCountry === "Polski"}
-        <PolandFlag />
+            <PolandFlag />
         {:else if selectedCountry === "English"}
-        <EnglandFlag />
+            <EnglandFlag />
         {:else if selectedCountry === "Deuchland"}
-        <GermanyFlag />
+            <GermanyFlag />
         {:else}
-        Nie wspierany jezyk
+            Nie wspierany jezyk
         {/if}
         <Arrow />
     </button>
+
     {#if isOpen}
-    <div class="modal">
-        <p class="language">Wybierz język: </p>
-        {#each countries as country}
-        <button class="country" on:click={()=>selectCountry(country)}> 
-            {country}
-            <div class ="flags">
-                {#if country === "Polski"}
-                <PolandFlag />
-                {:else if country === "English"}
-                <EnglandFlag />
-                {:else if country === "Deuchland"}
-                <GermanyFlag />
-                {/if}
-            </div>
-        </button>
-        {/each}
-    </div>
+        <div class="modal">
+            <p class="language">Wybierz język: </p>
+            {#each countries as country}
+                <button class="country" on:click={()=>selectCountry(country)}> 
+                    {country}
+                    <div class ="flags">
+                        {#if country === "Polski"}
+                            <PolandFlag />
+                        {:else if country === "English"}
+                            <EnglandFlag />
+                        {:else if country === "Deuchland"}
+                            <GermanyFlag />
+                        {/if}
+                    </div>
+                </button>
+            {/each}
+        </div>
     {/if}
 </div>
 
@@ -100,7 +97,7 @@
     }
 
     .country:hover {
-        background-color:rgb(150, 149, 149);
+        background-color: rgb(150, 149, 149);
     }
 
     .flags {
